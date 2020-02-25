@@ -19,7 +19,8 @@ export default function App() {
 
   useEffect(() => {
     // testing
-    fetchShow().then(res => {
+    fetchShow()
+      .then(res => {
       setShow(res.data);
       console.log('res.data', res.data);
       setSeasons(formatSeasons(res.data._embedded.episodes));
@@ -49,8 +50,8 @@ export default function App() {
 
   return (
     <div className="App">
-      {console.log('episodes', episodes)}
-      <img className="poster-img" src={show.image.original} alt={show.name} />
+      {/* {console.log('episodes', episodes)} */}
+      <img data-testid= 'image' className="poster-img" src={show.image.original} alt={show.name} />
       <h1>{show.name}</h1>
       {parse(show.summary)}
       <Dropdown
